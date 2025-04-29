@@ -12,13 +12,9 @@ defineProps({
 </script>
 
 <template>
-  <section class="bg-amber-50 py-20 mb-4">
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Image de fond floutée -->
-      <div class="absolute inset-0 bg-[url('/images/bg-homepage.jpg')] bg-cover bg-center filter blur-xs z-0"></div>
-      
-      <!-- Contenu (texte) au-dessus de l'image -->
-      <div class="relative z-10 text-center">
+  <section class="bg-amber-50 py-5 mb-2">
+    <div class="bg-[url('/images/bg-homepage.jpg')] bg-contain bg-no-repeat bg-center w-full h-screen">
+      <div class="text-center mx-auto max-w-1/2 py-4 backdrop-blur-xs">
         <h1 class="text-4xl font-extrabold text-amber-950 sm:text-5xl md:text-6xl">
           {{ title }}
         </h1>
