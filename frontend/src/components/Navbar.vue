@@ -22,8 +22,8 @@ const isActiveLink = (routePath) => {
               <RouterLink to="/"
                 :class="[isActiveLink('/') ? 'bg-amber-700 text-amber-50' : 'hover:bg-orange-900  hover:text-amber-50 text-amber-950', 'px-3', 'py-2', 'rounded-md']">
                 Accueil</RouterLink>
-              <RouterLink to="/"
-                :class="[isActiveLink('/card') ? 'bg-amber-700 text-amber-50' : 'hover:bg-orange-900 hover:text-amber-50 text-amber-950', 'px-3', 'py-2', 'rounded-md']">
+              <RouterLink to="/menu"
+                :class="[isActiveLink('/menu') ? 'bg-amber-700 text-amber-50' : 'hover:bg-orange-900 hover:text-amber-50 text-amber-950', 'px-3', 'py-2', 'rounded-md']">
                 La carte
               </RouterLink>
               <RouterLink to="/"
