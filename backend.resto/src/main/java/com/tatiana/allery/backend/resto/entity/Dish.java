@@ -1,6 +1,5 @@
 package com.tatiana.allery.backend.resto.entity;
 
-import java.util.Locale.Category;
 //booleanUtils avec la dépendance apache commons
 import org.apache.commons.lang3.BooleanUtils;
 
