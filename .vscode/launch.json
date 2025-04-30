@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-Application<backend.resto>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.tatiana.allery.backend.resto.Application",
+      "projectName": "backend.resto",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
