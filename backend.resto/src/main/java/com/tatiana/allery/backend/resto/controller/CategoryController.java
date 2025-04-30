@@ -13,49 +13,44 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tatiana.allery.backend.resto.entity.Dish;
-import com.tatiana.allery.backend.resto.services.DishServices;
+import com.tatiana.allery.backend.resto.entity.Category;
+import com.tatiana.allery.backend.resto.services.CategoryServices;
 
-import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 @RestController
-@AllArgsConstructor
-@RequestMapping("/plats")
+@NoArgsConstructor
+@RequestMapping("/categories")
 public class CategoryController {
-  private DishServices dishServices;
-
-  // Build REST API for dish addition
-  @PostMapping("/create")
-  public ResponseEntity<Dish> createDish(@RequestBody Dish newDish) {
-    Dish savedDish = dishServices.createDish(newDish);
-    return new ResponseEntity<>(savedDish, HttpStatus.CREATED);
-  }
-
-  //Dish research by id
-  @GetMapping("/{id}")
-  public ResponseEntity<Dish> getDish(@PathVariable("id") Long dishId) {
-    Dish dishFound = dishServices.getDishById(dishId);
-      return ResponseEntity.ok(dishFound);
-  }
-
-  //dish all research
-  @GetMapping("/all")
-  public ResponseEntity<List<Dish>> getAllDishes() {
-    var allDishesDto = dishServices.getAllDishes();
-    return ResponseEntity.ok(allDishesDto);
-  }
+  private CategoryServices categoryServices;
   
-  //update dish
-  @PutMapping("/{id}/update")
-  public ResponseEntity<Dish> updateDish(@PathVariable("id") Long dishId, @RequestBody Dish updatedDish) {
-    Dish dishToUpdate = dishServices.updateDish(dishId, updatedDish);
-    return ResponseEntity.ok(dishToUpdate);
+  @PostMapping("/create")
+  public ResponseEntity<Category> createCategory(@RequestBody Category newCategory) {
+    Category savedCategory = categoryServices.createCategory(newCategory);
+    return new ResponseEntity<>(savedCategory, HttpStatus.CREATED);
   }
 
-  //delete dish
+  @GetMapping("/{id}")
+  public ResponseEntity<Category> getCategoryById(@PathVariable("id") Long categoryId) {
+    Category categoryFound = categoryServices.getCategoryById(categoryId);
+    return ResponseEntity.ok(categoryFound);
+  }
+
+  @GetMapping("/all")
+  public ResponseEntity<List<Category>> getAllCategories() {
+    List<Category> allCategories = categoryServices.getAllCategories();
+    return ResponseEntity.ok(allCategories);
+  }
+
+  @PutMapping("/{id}/update")
+  public ResponseEntity<Category> updateCategory(@PathVariable("id") Long category_id, @RequestBody Category updatedCategory) {
+    Category categoryToUpdate = categoryServices.updateCategory(category_id, updatedCategory);
+    return ResponseEntity.ok(categoryToUpdate);
+  }
+
   @DeleteMapping("{id}/delete")
-  public ResponseEntity<String> deleteDish(@PathVariable("id") Long dishId) {
-    dishServices.deleteDish(dishId);
-    return ResponseEntity.ok("Plat supprimé avec succès"); 
+  public ResponseEntity<String> deleteCategory(@PathVariable("id") Long category_id) {
+    categoryServices.deleteCategory(category_id);
+    return ResponseEntity.ok("Catégorie supprimée avec succès"); 
   }
 }
